@@ -24,24 +24,28 @@
 
     </head>
     <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+              <ul class="nav navbar-nav">
+                  <li><a href="/">Home</a></li>
+              </ul>
+            </nav>
+            <div class="row header">
+                <div class="col-md-12">
+                    <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+                </div>
+            </div>
 
           {{ content }}
 
-          <div class="footer">
-            <div class="contact">
+          <div class="row footer">
+            <div class="col-md-3 contact">
               <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
+                Dave Hill<br />
+                Developer &amp; Photographer
               </p>
             </div>
-            <div class="contact">
+            <div class="col-md-9 contact">
               <p>
                 <a href="https://github.com/sixfifty">github.com/sixfifty</a><br />
                 <a href="https://twitter.com/sixfifty">twitter.com/sixfifty</a><br />
