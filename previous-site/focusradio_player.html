@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+	</head>
+	<body id="CodeRadio">
+		<div id="album_art"><img src="missing.png" /></div>
+		<audio id="radioplayer" controls>
+			<source src="http://vox.odsoks.co.uk/coderadio_mp3" type='audio/mpeg; codecs="mp3"'>
+			<source src="http://vox.odsoks.co.uk/coderadio_ogg" type='audio/ogg; codecs="vorbis"'>
+			<source src="http://vox.odsoks.co.uk/coderadio_aac64" type='audio/mp4; codecs="mp4a.40.5"'>
+			<!-- flash fallback -->
+				<div id="flashradioplayer"></div>
+				<script type="text/javascript" src="http://www.shouthostdirect.com/freeflashplayer/player/swfobject.js"></script>
+				<script type='text/javascript'>
+					if (typeof(SWFObject) !== 'undefined') {
+						var s1 = new SWFObject('http://www.shouthostdirect.com/freeflashplayer/player/player.swf',
+						'player',"300","32","9","#FFFFFF");
+						s1.addParam('allowfullscreen','true');
+						s1.addParam('allowscriptaccess','always');
+						s1.addParam("flashvars","skin=http://www.shouthostdirect.com/freeflashplayer/skins/modieus.swf&title=Live Stream&type=sound&file=http://vox.odsoks.co.uk/coderadio_mp3?type=.mp3&13202692901&duration=99999&id=scplayer&autostart=false");
+						s1.write("flashradioplayer");
+				}
+				</script>					
+		</audio>
+		<p class="now-playing">Now playing: <span id="TrackContainer"> Loading... </span></p>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.0/jquery.xdomainrequest.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.support.cors = true;
+				var 
+					TrackContainer = $('#TrackContainer'),
+					radioplayer = $('#radioplayer').get(0);
+
+				function updateTrackTitle() {
+					var currentTrack, currentTrackTitle, oldTrackTitle;
+					$.ajax({
+						type: "GET",
+						url: "http://vox.odsoks.co.uk:8080/coderadio_mp3.xspf",
+						//url: 'fuse.mp3.xspf',
+						cache: false,
+						dataType: "xml",
+						success: function(xml) {
+							currentTrack = $(xml).find('track title').text();
+							//Backup last title
+							oldTrackTitle = currentTrackTitle;
+							currentTrackTitle = currentTrack;
+							if(oldTrackTitle != currentTrackTitle) {
+
+								if(currentTrack == 'Unknown') {
+									$('#album_art').html('<img src="missing.png" />');
+									currentTrack = 'Not sure, tell Dave!';
+								} else {
+									$.getJSON("http://ws.audioscrobbler.com/2.0/?method=track.search&track=" + encodeURI(currentTrackTitle) + "&api_key=5c6a9014d6052d9d730b0257f0b64f92&format=json", function(json){
+										var foundArt = 'missing.png';
+										if(json.results.trackmatches != 0) {
+											$.each(json.results.trackmatches.track, function(i, value) {
+												if(typeof value.image != 'undefined') {
+													foundArt = value.image[3]['#text'];
+													return false;
+												}
+											});
+											
+										}
+										$('#album_art').html('<img src="' + foundArt + '" />');
+
+									});
+								}
+								TrackContainer.html(currentTrack);
+
+							}
+						}
+					});
+				}
+				updateTrackTitle();
+				setInterval ( updateTrackTitle, 20000 );
+				if(document.createElement('audio').canPlayType) {
+					radioplayer.volume = 0.75;
+					radioplayer.play();	
+				}
+			});
+		</script>
+	</body>
+</html>

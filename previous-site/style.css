@@ -1,0 +1,115 @@
+body {
+	font-size: 1.2em;
+	margin: 0px;
+	color: #fff;
+	font-family: Lato;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.block-container {
+	padding: 100px 10px;
+}
+
+#OdsoksRadio {
+	background-color: rgb(62, 179, 245); 
+}
+
+#OdsoksRadio a {
+	color: rgb(0, 82, 204);
+}
+
+.radioframe {
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	width:600px;
+	height:350px;
+}
+
+#PhotoFrame {
+	background: black url('https://farm9.staticflickr.com/8201/8191940410_b87fa0a1c4_h_d.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#Intro {
+	background: black url('https://farm8.staticflickr.com/7306/9534683889_5bfb2b49b1_h_d.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+}
+
+#Intro p.phonetic {
+	font-style: italic;
+	margin-top: -20px;
+	padding-left: 288px;
+}
+
+
+#PhotoFrame a {
+	color: aaa;
+}
+
+#CodeRadio {
+	background-color: #6600CC; 
+}
+
+#CodeRadio a {
+	color: #9966ff;
+}
+
+
+
+h1.title {
+	font-weight: 700;
+	font-size: 6em;
+	margin: 0px;
+}
+
+h1.title span.light {
+	font-weight: 100;
+}
+
+p.subhead {
+	margin-top: 0px;
+}
+
+p.listen-in {
+	font-size: 0.7em;
+}
+
+p.now-playing {
+	font-size: 0.7em;
+	margin-bottom: none;
+}
+
+.album_error {
+	width: 160px;
+	height: 160px;
+	border: 2px solid black;
+}
+
+#album_art {
+	min-height: 300px;
+	height: 300px;
+	overflow: hidden;
+}
+
+#radioplayer, #flashradioplayer {
+	margin-top: -35px;
+}
+
+#radioplayer {
+	width:300px;
+}

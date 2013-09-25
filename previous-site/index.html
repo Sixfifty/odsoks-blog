@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Odsoks</title>
+		<link rel="apple-touch-icon" href="apple-touch.png"/>
+		<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div id="Intro" class="block-container">
+			<h1 class="title">Odsoks</h1>
+			<p class="phonetic">{odd-socks}</p>
+			<p>Odsoks is the online home of Dave Hill and his various projects</p>
+		</div>
+		<div id="OdsoksRadio" class="block-container">
+			<h1 class="title">Odsoks <span class="light">Radio</span></h1>
+			<p class="subhead">A eclectic selection of electronic, rock, indie and video game soundtracks</p>
+			<p class="webplayer"><a href="openradio_player.html">Launch web player</a></p>
+			<p class="listen-in">Listen in <a href="http://vox.odsoks.co.uk/openradio_mp3.m3u">MP3</a>, <a href="http://vox.odsoks.co.uk/openradio_ogg.m3u">Vorbis</a>, <a href="http://vox.odsoks.co.uk/openradio_aac64.m3u">AAC High</a>, <a href="http://vox.odsoks.co.uk/openradio_aac32.m3u">AAC Low</a></p>
+		</div>
+
+		<div id="PhotoFrame" class="block-container">
+			<h1 class="title"><span class="light">Dave's</span> Photos</h1>
+			<p class="subhead">I take photos, I post them to Flickr. <a href="http://flickr.com/photos/dmh650/">Take a look!</a></p>
+		</div>
+
+		<div id="CodeRadio" class="block-container">
+			<h1 class="title">Focus <span class="light">Radio</span></h1>
+			<p class="subhead">Mostly vocal-free tunes to help you focus.</p>
+			<p class="webplayer"><a href="focusradio_player.html">Launch web player</a></p>
+			<p class="listen-in">Listen in <a href="http://vox.odsoks.co.uk/coderadio_mp3.m3u">MP3</a>, <a href="http://vox.odsoks.co.uk/coderadio_ogg.m3u">Vorbis</a>, <a href="http://vox.odsoks.co.uk/coderadio_aac64.m3u">AAC High</a>, <a href="http://vox.odsoks.co.uk/coderadio_aac32.m3u">AAC Low</a>. Web player coming soon.</p>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$('p.webplayer a').click(function() { 
+				var url = $(this).attr('href'),
+					playerframe = $('<iframe />', { 
+						src: url,
+						frameborder: '0'})
+						.addClass('radioframe');
+				$(this).parent().html(playerframe);
+				return false; 
+			});
+		</script>
+	</body>
+</html>
