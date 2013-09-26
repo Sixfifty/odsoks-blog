@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Test"
+date:   2013-09-18 13:59:56
+categories: 
+---
+This is a test

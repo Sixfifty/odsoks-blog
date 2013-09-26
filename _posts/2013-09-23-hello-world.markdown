@@ -4,7 +4,7 @@ title:  "Hello World"
 date:   2013-09-23 13:59:56
 categories: 
 ---
-![Me in California](https://farm8.staticflickr.com/7322/8729377176_1faf4bd6cb_b_d.jpg)
+<img src="https://farm8.staticflickr.com/7322/8729377176_1faf4bd6cb_b_d.jpg" alt="Me in California" class="img-responsive">
 
 So good evening, welcome to my blog. This is the first post (or if you are reading in reverse, the last post).
 

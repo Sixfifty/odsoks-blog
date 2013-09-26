@@ -1,3 +1,4 @@
 name: Odsoks
 markdown: redcarpet
 pygments: true
+paginate: 5

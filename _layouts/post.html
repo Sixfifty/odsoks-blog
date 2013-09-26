@@ -2,12 +2,13 @@
 layout: default
 ---
 <div class="row">
-    <div class="col-md-12 default-head">
-        <h2>{{ page.title }}</h2>
+    <div class="col-md-8 post">
+    	<h2>{{ page.title }}</h2>
         <p class="meta">{{ page.date | date_to_string }}</p>
+    	{{ content }}
     </div>
-    
-    <div class="col-md-12 post">
-    {{ content }}
+
+    <div class="col-md-4 sidebar">
+    Some content?
     </div>
 </div>

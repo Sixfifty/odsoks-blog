@@ -9,7 +9,8 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
-
+        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' type='text/css'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Arvo:700,400italic,400' type='text/css'>
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
@@ -25,15 +26,14 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-default" role="navigation">
-              <ul class="nav navbar-nav">
-                  <li><a href="/">Home</a></li>
-              </ul>
-            </nav>
             <div class="row header">
                 <div class="col-md-12">
                     <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+                    <ul class="nav nav-pills nav-justified">
+                      <li><a href="/">Home</a></li>
+                    </ul>
                 </div>
+                
             </div>
 
           {{ content }}
